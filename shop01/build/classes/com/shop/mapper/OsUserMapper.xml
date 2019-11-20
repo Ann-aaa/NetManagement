@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.dao.OsUserMapper">
+  <resultMap id="BaseResultMap" type="com.shop.po.OsUser">
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="user_number" jdbcType="BIGINT" property="userNumber" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="login_password" jdbcType="VARCHAR" property="loginPassword" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="sex" jdbcType="BIT" property="sex" />
+    <result column="age" jdbcType="TINYINT" property="age" />
+    <result column="pic_img" jdbcType="VARCHAR" property="picImg" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="regeist_time" jdbcType="TIMESTAMP" property="regeistTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>
