@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.dao.OsOrderMapper">
+  <resultMap id="BaseResultMap" type="com.shop.po.OsOrder">
+    <id column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="order_number" jdbcType="BIGINT" property="orderNumber" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="pay_type" jdbcType="TINYINT" property="payType" />
+    <result column="shipment_time" jdbcType="TINYINT" property="shipmentTime" />
+    <result column="shipment_type" jdbcType="TINYINT" property="shipmentType" />
+    <result column="shipment_amount" jdbcType="DECIMAL" property="shipmentAmount" />
+    <result column="invoice_type" jdbcType="TINYINT" property="invoiceType" />
+    <result column="invoice_title" jdbcType="VARCHAR" property="invoiceTitle" />
+    <result column="order_status" jdbcType="TINYINT" property="orderStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="order_amount" jdbcType="DECIMAL" property="orderAmount" />
+    <result column="order_score" jdbcType="INTEGER" property="orderScore" />
+    <result column="pay_amount" jdbcType="DECIMAL" property="payAmount" />
+    <result column="buy_number" jdbcType="INTEGER" property="buyNumber" />
+  </resultMap>
+
+  <resultMap id="OrderVOResultMap" type="com.shop.vo.OrderVO">
+    <id column="order_id1" jdbcType="BIGINT" property="orderId" />
+    <result column="order_number" jdbcType="BIGINT" property="orderNumber" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="pay_type" jdbcType="TINYINT" property="payType" />
+    <result column="shipment_time" jdbcType="TINYINT" property="shipmentTime" />
+    <result column="shipment_type" jdbcType="TINYINT" property="shipmentType" />
+    <result column="shipment_amount" jdbcType="DECIMAL" property="shipmentAmount" />
+    <result column="invoice_type" jdbcType="TINYINT" property="invoiceType" />
+    <result column="invoice_title" jdbcType="VARCHAR" property="invoiceTitle" />
+    <result column="order_status1" jdbcType="TINYINT" property="orderStatus" />
+    <result column="create_time1" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time1" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="order_amount" jdbcType="DECIMAL" property="orderAmount" />
+    <result column="order_score" jdbcType="INTEGER" property="orderScore" />
+    <result column="pay_amount" jdbcType="DECIMAL" property="payAmount" />
+    <result column="buy_number" jdbcType="INTEGER" property="buyNumber" />
+    <association property="osOrderShipment" javaType="com.shop.po.OsOrderShipment">
+      <id column="order_shipment_id4" jdbcType="BIGINT" property="orderShipmentId" />
+      <result column="order_id4" jdbcType="BIGINT" property="orderId" />
+      <result column="user_name4" jdbcType="VARCHAR" property="userName" />
+      <result column="user_phone4" jdbcType="VARCHAR" property="userPhone" />
+      <result column="user_adress4" jdbcType="VARCHAR" property="userAdress" />
+      <result column="user_zipcode4" jdbcType="INTEGER" property="userZipcode" />
+      <result column="update_time4" jdbcType="TIMESTAMP" property="updateTime" />
+    </association>
+    <collection property="orderProducts" ofType="com.shop.po.OsOrderProduct">
+      <id column="order_product_id" jdbcType="BIGINT" property="orderProductId" />
+      <result column="order_id2" jdbcType="BIGINT" property="orderId" />
+      <result column="product_number" jdbcType="BIGINT" property="productNumber" />
+      <result column="name" jdbcType="VARCHAR" property="name" />
+      <result column="pic_img" jdbcType="VARCHAR" property="picImg" />
+      <result column="product_spec_number" jdbcType="BIGINT" property="productSpecNumber" />
+      <result column="product_spec_name" jdbcType="VARCHAR" property="productSpecName" />
+      <result column="price" jdbcType="DECIMAL" property="price" />
+      <result column="score" jdbcType="INTEGER" property="score" />
+      <result column="buy_number2" jdbcType="INTEGER" property="buyNumber" />
+      <result column="product_score" jdbcType="INTEGER" property="productScore" />
+      <result column="product_amount" jdbcType="DECIMAL" property="productAmount" />
+      <result column="comment_status" jdbcType="TINYINT" property="commentStatus" />
+    </collection>
+    <collection property="orderStatusList" ofType="com.shop.po.OsOrderStatus">
+      <id column="order_status_id" jdbcType="BIGINT" property="orderStatusId" />
+      <result column="order_id3" jdbcType="BIGINT" property="orderId" />
+      <result column="order_status3" jdbcType="TINYINT" property="orderStatus" />
+      <result column="create_time3" jdbcType="TIMESTAMP" property="createTime" />
+      <result column="create_status" jdbcType="TINYINT" property="createStatus" />
+      <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    </collection>
+
+  </resultMap>
+
+</mapper>

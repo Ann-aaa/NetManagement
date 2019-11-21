@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.dao.OsOrderShipmentMapper">
+  <resultMap id="BaseResultMap" type="com.shop.po.OsOrderShipment">
+    <id column="order_shipment_id" jdbcType="BIGINT" property="orderShipmentId" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_adress" jdbcType="VARCHAR" property="userAdress" />
+    <result column="user_zipcode" jdbcType="INTEGER" property="userZipcode" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>
