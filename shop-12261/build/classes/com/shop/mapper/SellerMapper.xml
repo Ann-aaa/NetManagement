@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.dao.SellerMapper">
+  <resultMap id="BaseResultMap1" type="com.shop.po.Seller">
+    <id column="seller_id" jdbcType="BIGINT" property="sellerId" />
+    <result column="seller_name" jdbcType="VARCHAR" property="sellerName" />
+    <result column="login_password" jdbcType="VARCHAR" property="loginPassword" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+  </resultMap>
+  <sql id="Base_Column_List1">
+   seller_id, seller_name, login_password, telephone, price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap1">
+    select 
+    <include refid="Base_Column_List1" />
+    from seller
+    where seller_id = #{sellerId,jdbcType=BIGINT}
+  </select>
+
+   <select id="selectByTelephone" parameterType="java.lang.String" resultMap="BaseResultMap1">
+    select
+    <include refid="Base_Column_List1" />
+    from seller
+    where telephone = #{telephone,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from seller
+    where seller_id = #{sellerId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.shop.po.Seller">
+    insert into seller (seller_id, seller_name, 
+      login_password, telephone, 
+      price)
+    values (#{sellerId,jdbcType=BIGINT}, #{sellerName,jdbcType=VARCHAR}, 
+      #{loginPassword,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shop.po.Seller">
+    insert into seller
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sellerId != null">
+        seller_id,
+      </if>
+      <if test="sellerName != null">
+        seller_name,
+      </if>
+      <if test="loginPassword != null">
+        login_password,
+      </if>
+      <if test="telephone != null">
+        telephone,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sellerId != null">
+        #{sellerId,jdbcType=BIGINT},
+      </if>
+      <if test="sellerName != null">
+        #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPassword != null">
+        #{loginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shop.po.Seller">
+    update seller
+    <set>
+      <if test="sellerName != null">
+        seller_name = #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPassword != null">
+        login_password = #{loginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where seller_id = #{sellerId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shop.po.Seller">
+    update seller
+    set 
+      seller_name = #{sellerName,jdbcType=VARCHAR},
+      login_password = #{loginPassword,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL}
+    where seller_id = #{sellerId,jdbcType=BIGINT}
+  </update>
+</mapper>
